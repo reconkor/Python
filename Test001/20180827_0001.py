@@ -1,5 +1,18 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import Menu
+
+def _quit():
+    win.quit()
+    win.destroy()
+    exit()
+
+def click_me():
+    action.configure(text="I have been clicked")
+    a_label.configure(foreground="red")
+#    a_label.configure(text="A Red label")
+    a_label.configure(text="Hello " + name.get() + ":"+ number.get())
+
 win = tk.Tk()
 win.title("Python GUI")
 
@@ -9,11 +22,16 @@ a_label.grid(column=0, row=0)
 b_label = tk.Label(win, text="Choose a Number")
 b_label.grid(column=1, row=0)
 
-def click_me():
-    action.configure(text="I have been clicked")
-    a_label.configure(foreground="red")
-#    a_label.configure(text="A Red label")
-    a_label.configure(text="Hello " + name.get() + ":"+ number.get())
+#Creating a Menu Bar
+menu_bar = Menu(win)
+win.config(menu=menu_bar)
+
+#Add Menu item
+file_menu = Menu(menu_bar, tearoff=0)
+file_menu.add_command(label="New")
+file_menu.add_separator()
+file_menu.add_command(label="Exit", command=_quit)
+menu_bar.add_cascade(label="File", menu=file_menu)
 
 name = tk.StringVar()
 name_entered = tk.Entry(win, width=12, textvariable=name)
@@ -31,4 +49,7 @@ action.grid(column=2, row=1)
 
 #name_entered.focus()
 
+#======================
+# Start GUI
+#======================
 win.mainloop()
