@@ -1,0 +1,7 @@
+<application>
+  <component name="GithubAccounts">
+    <account id="2edde4b6-0f2b-4c82-93be-b942f2da63c9" name="reconkor">
+      <server host="github.com" />
+    </account>
+  </component>
+</application>
